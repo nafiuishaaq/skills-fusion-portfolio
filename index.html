@@ -10,6 +10,7 @@
     <title>Portfolio</title>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/components/header.css" />
+    <link rel="stylesheet" href="css/components/projects.css" />
     <link rel="stylesheet" href="css/components/footer.css" />
   </head>
   <body>
@@ -21,7 +22,16 @@
           Portfolio
         </a>
 
-        <nav class="site-navigation" aria-label="Primary navigation">
+        <button
+          class="site-navigation__toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+        >
+          <span class="site-navigation__toggle-label">Menu</span>
+        </button>
+
+        <nav class="site-navigation" id="primary-navigation" aria-label="Primary navigation">
           <ul class="site-navigation__list">
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
@@ -45,8 +55,15 @@
 
       <section id="projects" aria-labelledby="projects-title">
         <h2 id="projects-title">Projects</h2>
-        <p>Featured project work will be added here.</p>
-        <img src="assets/images/profile-placeholder.jpg" alt="Placeholder for a project or profile image" />
+        <div class="projects-toolbar" aria-label="Filter projects">
+          <div class="projects-filter" role="group" aria-label="Project categories">
+            <button class="projects-filter__button is-active" type="button" data-filter="all" aria-pressed="true">
+              All
+            </button>
+          </div>
+        </div>
+        <div class="projects-grid" data-projects-grid></div>
+        <p class="projects-empty" data-projects-empty hidden>No projects match this category yet.</p>
       </section>
 
       <section id="contact" aria-labelledby="contact-title">
@@ -63,5 +80,6 @@
         </nav>
       </div>
     </footer>
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>
